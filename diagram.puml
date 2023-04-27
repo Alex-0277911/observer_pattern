@@ -1,0 +1,25 @@
+@startuml
+set namespaceSeparator ::
+
+class "observer_pattern::observer_pattern.dart::Scoreboard" {
+  -List<Observer> _observers
+  -int _homeScore
+  -int _awayScore
+  +void addObserver()
+  +void removeObserver()
+  +void updateScores()
+}
+
+abstract class "observer_pattern::observer_pattern.dart::Observer" {
+  +void update()
+}
+
+class "observer_pattern::observer_pattern.dart::Fan" {
+  -String _name
+  +void update()
+}
+
+"observer_pattern::observer_pattern.dart::Observer" <|-- "observer_pattern::observer_pattern.dart::Fan"
+
+
+@enduml
